@@ -30,7 +30,11 @@ function setup() {
 	bob4 = new Bob(450, 300, 20);
 	bob5 = new Bob(500, 300, 20);
 
-	rope1 = new Rope(bob1, roof, 0, 0);
+	rope1 = new Rope(bob1.body, roof, 0, 0);
+	rope2 = new Rope(bob2.body, roof, -40, 0);
+	rope3 = new Rope(bob3.body, roof, -80, 0);
+	rope4 = new Rope(bob4.body, roof, 40, 0);
+	rope5 = new Rope(bob5.body, roof, 80, 0);
 	Engine.run(engine);
 
 }
@@ -43,6 +47,10 @@ function draw() {
 
   //call display() to show ropes here
 	rope1.display();
+	rope2.display();
+	rope3.display();
+	rope4.display();
+	rope5.display();
 
   
   //create ellipse shape for multiple bobs here
@@ -55,3 +63,9 @@ function draw() {
 }
 
 //Write keyPressed function and apply force on pressing up_arrow key on the first bob.
+function keyPressed(){
+	if(keyCode===UP_ARROW){
+		Matter.Body.applyForce(bob3.body,bob3.body.position,{x:10,y:10});
+	}
+
+}
